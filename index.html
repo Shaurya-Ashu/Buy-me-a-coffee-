@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Harryy.ashu ☕</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f2027;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* Animated gradient background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #141E30, #243B55, #0f2027);
+    animation: gradientMove 12s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes gradientMove {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-25%, -25%); }
+}
+
+.container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+.subtitle {
+    margin: 15px 0 25px;
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+button, .pay-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+.amount-btn {
+    background: #ff9800;
+    color: white;
+}
+
+.amount-btn:hover {
+    transform: scale(1.1);
+    background: #ffb74d;
+}
+
+.pay-btn {
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pay-btn:hover {
+    transform: scale(1.05);
+    background: #69f0ae;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    width: 120px;
+    margin: 10px;
+}
+
+.qr {
+    margin-top: 15px;
+}
+
+.social a {
+    color: #69f0ae;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Harryy.ashu ☕</h1>
+<p class="subtitle">
+Robotics • IoT • Drones • Satellites • Code <br>
+Support the journey of a young builder 🚀
+</p>
+
+<div class="section">
+<h3>Fuel the next build</h3>
+
+<button class="amount-btn" onclick="setAmount(20)">₹20</button>
+<button class="amount-btn" onclick="setAmount(50)">₹50</button>
+<button class="amount-btn" onclick="setAmount(100)">₹100</button>
+
+<br>
+
+<input type="number" id="customAmount" placeholder="Custom ₹">
+<br>
+
+<a id="payLink" class="pay-btn"
+href="upi://pay?pa=shauryaashu023-1@okhdfcbank&pn=Harryy.ashu&cu=INR&am=20">
+Pay ₹20 via UPI
+</a>
+
+<div class="qr">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=shauryaashu023-1@okhdfcbank&pn=Harryy.ashu&cu=INR" alt="UPI QR">
+</div>
+</div>
+
+<div class="section">
+<h3>What I'm Building</h3>
+<p>
+AI CubeSat • Smart IoT Systems • RC Aircraft • Hardware Experiments <br>
+Every contribution directly powers components & prototypes.
+</p>
+</div>
+
+<div class="section social">
+<h3>Connect</h3>
+<a href="#">YouTube</a>
+<a href="#">GitHub</a>
+<a href="#">Instagram</a>
+</div>
+
+<div class="footer">
+Made with ambition by Harryy.ashu 💡
+</div>
+
+</div>
+
+<script>
+function setAmount(amount) {
+    let link = document.getElementById("payLink");
+    link.href = `upi://pay?pa=shauryaashu023-1@okhdfcbank&pn=Harryy.ashu&cu=INR&am=${amount}`;
+    link.innerText = `Pay ₹${amount} via UPI`;
+}
+
+document.getElementById("customAmount").addEventListener("input", function() {
+    let amount = this.value;
+    if(amount > 0){
+        setAmount(amount);
+    }
+});
+</script>
+
+</body>
+</html>
